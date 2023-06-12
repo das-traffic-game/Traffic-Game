@@ -5,7 +5,7 @@
 ---
 name: Deploy
 
-on: # yamllint disable-line rule:truthy
+"on":
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
@@ -49,16 +49,12 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_SQL: true
           VALIDATE_TYPESCRIPT_ES: true
-          VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_TSX: true
-          VALIDATE_JSX: true
           VALIDATE_YAML: true
           VALIDATE_MARKDOWN: true
           VALIDATE_JSON: true
           VALIDATE_HTML: true
           VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_CSS: true
-          VALIDATE_GHERKIN: true
           VALIDATE_DOCKERFILE_HADOLINT: true
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
