@@ -26,37 +26,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Lint Job
-  lint:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: read
-      statuses: write
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          # Full git history is needed to get a proper list
-          # of changed files within `super-linter`
-          fetch-depth: 0
-
-      - name: Lint
-        uses: github/super-linter/slim@v5
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_SQL: true
-          VALIDATE_TYPESCRIPT_ES: true
-          VALIDATE_TSX: true
-          VALIDATE_YAML: true
-          VALIDATE_JSON: true
-          VALIDATE_HTML: true
-          VALIDATE_DOCKERFILE_HADOLINT: true
-          DEFAULT_BRANCH: "main"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   # Build job
   build:
     runs-on: ubuntu-latest
