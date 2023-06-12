@@ -27,9 +27,23 @@ jobs:
           fetch-depth: 0
 
       - name: Lint Code Base
-        uses: github/super-linter@v5
+        uses: super-linter/super-linter/slim@v5
         env:
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_SQL: true
+          VALIDATE_TYPESCRIPT_ES: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_TSX: true
+          VALIDATE_JSX: true
+          VALIDATE_YAML: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_JSON: true
+          VALIDATE_HTML: true
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_ENV: true
+          VALIDATE_CSS: true
+          VALIDATE_GHERKIN: true
+          VALIDATE_DOCKERFILE_HADOLINT: true
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YAML_CONFIG_FILE: .yamllint
