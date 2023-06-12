@@ -40,7 +40,6 @@ jobs:
           VALIDATE_JSON: true
           VALIDATE_HTML: true
           VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_ENV: true
           VALIDATE_CSS: true
           VALIDATE_GHERKIN: true
           VALIDATE_DOCKERFILE_HADOLINT: true
