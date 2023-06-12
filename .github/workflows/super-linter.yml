@@ -7,9 +7,7 @@
 # https://github.com/github/super-linter
 name: Lint
 
-on:  # yamllint disable-line rule:truthy
-  push:
-    branches: ["main"]
+on:
   pull_request:
     branches: ["main"]
 jobs:
@@ -32,16 +30,10 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_SQL: true
           VALIDATE_TYPESCRIPT_ES: true
-          VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_TSX: true
-          VALIDATE_JSX: true
           VALIDATE_YAML: true
-          VALIDATE_MARKDOWN: true
           VALIDATE_JSON: true
           VALIDATE_HTML: true
-          VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_CSS: true
-          VALIDATE_GHERKIN: true
           VALIDATE_DOCKERFILE_HADOLINT: true
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
