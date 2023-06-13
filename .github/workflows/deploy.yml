@@ -25,9 +25,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: ./web-app
 
 jobs:
   # Build job
@@ -47,6 +44,7 @@ jobs:
           exit 0
       - name: Setup Node
         uses: actions/setup-node@v3
+        working-directory: ./web-app
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
@@ -60,6 +58,7 @@ jobs:
           static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v3
+        working-directory: ./web-app
         with:
           path: |
             .next/cache
@@ -69,12 +68,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
+        working-directory: ./web-app
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        working-directory: ./web-app
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
+        working-directory: ./web-app
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
+        working-directory: ./web-app
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./out
