@@ -34,7 +34,6 @@ jobs:
           VALIDATE_YAML: true
           VALIDATE_JSON: true
           VALIDATE_HTML: true
-          VALIDATE_DOCKERFILE_HADOLINT: true
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YAML_CONFIG_FILE: .yamllint

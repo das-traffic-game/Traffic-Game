@@ -2,9 +2,9 @@ resource "docker_image" "matchmaker_server" {
   name = "matchmaker_server"
 
   build {
-    context = "../.."
+    context    = "../.."
     dockerfile = "devops/units/matchmaker_server.dockerfile"
-    label   = { project : "traffic-game" }
+    label      = { project : "traffic-game" }
   }
 
 
@@ -14,13 +14,13 @@ resource "docker_image" "matchmaker_server" {
   }
 }
 
-resource "docker_image" "web_server" {
-  name = "web_server"
+resource "docker_image" "web_server_dev" {
+  name = "web_server_dev"
 
   build {
-    context = "../.."
-    dockerfile = "devops/units/web_server.dockerfile"
-    label   = { project : "traffic-game" }
+    context    = "../.."
+    dockerfile = "devops/units/web_server_dev.dockerfile"
+    label      = { project : "traffic-game" }
   }
 
   triggers = {
