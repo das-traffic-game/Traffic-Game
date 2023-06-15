@@ -5,3 +5,11 @@ variable "backend_port" {
 variable "frontend_port" {
   type = number
 }
+
+variable "setuid" {
+  type = number
+}
+
+variable "setgid" {
+  type = number
+}

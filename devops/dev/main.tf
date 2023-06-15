@@ -15,17 +15,23 @@ resource "docker_container" "matchmaker_server" {
 
   ports {
     internal = 3000
-    external = "${var.backend_port}"
+    external = var.backend_port
   }
 }
 
-resource "docker_container" "web_server" {
-  name  = "web_server"
-  image = docker_image.web_server.image_id
+resource "docker_container" "web_server_dev" {
+  name  = "web_server_dev"
+  image = docker_image.web_server_dev.image_id
 
   ports {
-    internal = 80
-    external = "${var.frontend_port}"
+    internal = 8080
+    external = var.frontend_port
+  }
+
+  env = ["SETUID=${var.setuid}", "SETGID=${var.setgid}"]
+  volumes {
+    container_path = "/app"
+    host_path      = "${path.cwd}/../../web-app"
   }
 
 }
