@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "phaser";
 
 export default function Home() {
   return (
